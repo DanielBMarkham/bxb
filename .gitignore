@@ -54,4 +54,6 @@ TestResult.xml
 nunit-*.xml
 
 #Google Drive
-*.tmp 
+*.tmp/
+*.tmp.driveupload/
+
