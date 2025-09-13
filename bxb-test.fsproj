@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="bxb.fs" />
+    <Compile Include="bxb-test.fs" />
   </ItemGroup>
 
 </Project>
