@@ -1,13 +1,22 @@
+#if INTERACTIVE
+#else
+module BxbFsx
+#endif 
+
 // bxb.fsx
 // Main script for bxb. Loads the shared library and handles CLI I/O, options, logging, and tests.
 // Designed to be as functional as possible while handling imperative I/O.
 
+// NEED THIS FOR COMMON ENTRY POINT FROM CLI TO COMPONENTS
 #load "bxb-lib.fsx"
 
 open System
 open System.IO
-open BxbLib
-open Microsoft.FSharp.Compiler.Interactive.Settings
+#if INTERACTIVE
+  open Microsoft.FSharp.Compiler.Interactive.Settings
+#else
+  open BxbLib
+#endif 
 
 let appName = "bxb"
 
@@ -27,4 +36,4 @@ let logMsg (userLevel: LogLevel) (useDt: bool) (level: LogLevel) (msg: string) :
         let levelStr = LogLevel.ToString level
         Console.Error.WriteLine($"{prefix}{levelStr}: {msg}")
 
-printfn "Hello World from bxb"
+printfn "Hello World from bxb fsx"

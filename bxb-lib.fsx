@@ -1,9 +1,13 @@
+#if INTERACTIVE
+#else
+module BxbLib
+#endif 
 // bxb-lib.fsx
 // Purely functional library for bxb and bxb-test
 // No side effects, no I/O, no logging
 
-module BxbLib
-
+// THIS IS WHERE ANY ACTUAL REAL CODE GOES
+#load "cli-common.fsx"
 open System
 open System.Text.RegularExpressions
 
