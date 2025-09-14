@@ -1,3 +1,4 @@
+#!/usr/bin/env -S dotnet fsi
 #if INTERACTIVE
 #else
 module BxbLib
@@ -7,9 +8,25 @@ module BxbLib
 // No side effects, no I/O, no logging
 
 // THIS IS WHERE ANY ACTUAL REAL CODE GOES
-#load "cli-common.fsx"
+
+// THIS IS THE DANCE WE NEED TO DO IN ORDER TO GET NESTING WORKING
+#if INTERACTIVE
+printfn "Source File: %s" __SOURCE_FILE__
+printfn "hello from the beginning of bxb-lib.fsx"
+let NESTED =
+    (let frames = System.Diagnostics.StackTrace().GetFrames()
+                 |> Array.map (fun frame -> frame.GetMethod().Name)
+    frames.[0] = "main@" && not (Array.contains "EvalParsedSourceFiles" frames))=false 
+if NESTED then printfn "nested" else printfn "not nested"
+open Microsoft.FSharp.Compiler.Interactive.Settings
+#load "clicommon.fsx"
+#else
+  open CliCommon
+#endif
+
 open System
 open System.Text.RegularExpressions
+open System.IO
 
 /// Reverses the columns in a single line based on the delimiter regex pattern.
 /// Splits the line using the regex with capturing groups to preserve delimiters, reverses the columns, and joins back with reversed delimiters.
@@ -39,3 +56,15 @@ let processAppDataLine (line: string) (delim: string) : string =
 /// Pure function to process a single line for app2-test (initially reverses columns).
 let processAppTestDataLine (line: string) (delim: string) : string =
     reverseColumnsLine line delim
+
+// THIS IS THE DANCE WE NEED TO DO IN ORDER TO GET NESTING WORKING
+#if INTERACTIVE
+printfn "Source File: %s" __SOURCE_FILE__
+printfn "hello from the end of bxb-lib.fsx"
+// let NESTED =
+//     (let frames = System.Diagnostics.StackTrace().GetFrames()
+//                  |> Array.map (fun frame -> frame.GetMethod().Name)
+//     frames.[0] = "main@" && not (Array.contains "EvalParsedSourceFiles" frames))=false 
+if NESTED then printfn "nested" else printfn "not nested"
+#else
+#endif

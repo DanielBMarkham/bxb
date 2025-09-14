@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="cli-common.fsx" />
+    <Compile Include="bxb-lib.fsx" />
     <Compile Include="bxb.fsx" />
     <Compile Include="bxb.fs" />
   </ItemGroup>
