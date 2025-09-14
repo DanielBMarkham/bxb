@@ -1,14 +1,34 @@
+#!/usr/bin/env -S dotnet fsi
+#if INTERACTIVE
+#else
+module Bxb
+#endif 
+// bxb.fsx
+// Main script for bxb. Loads the shared library and handles CLI I/O, options, logging, and tests.
+// Designed to be as functional as possible while handling imperative I/O.
+
+
+#if INTERACTIVE
+printfn "Source File: %s" __SOURCE_FILE__
+printfn "hello from the beginning of bxb.fsx"
+let NESTED =
+    (let frames = System.Diagnostics.StackTrace().GetFrames()
+                 |> Array.map (fun frame -> frame.GetMethod().Name)
+    frames.[0] = "main@" && not (Array.contains "EvalParsedSourceFiles" frames))=false 
+if NESTED then printfn "nested" else printfn "not nested"
+open Microsoft.FSharp.Compiler.Interactive.Settings
+#load "bxb-lib.fsx"
+#else
+  open BxbLib
+#endif
+open Clicommon
+
 #if INTERACTIVE
 #else
 module BxbFsx
 #endif 
 
-// bxb.fsx
-// Main script for bxb. Loads the shared library and handles CLI I/O, options, logging, and tests.
-// Designed to be as functional as possible while handling imperative I/O.
-
 // NEED THIS FOR COMMON ENTRY POINT FROM CLI TO COMPONENTS
-#load "bxb-lib.fsx"
 
 open System
 open System.Text.RegularExpressions
@@ -135,7 +155,22 @@ let main () =
         if writer <> Console.Out then writer.Close()
 
 
-printfn "Hello World from bxb fsx"
+
+// THIS IS THE DANCE WE NEED TO DO IN ORDER TO GET NESTING WORKING
+#if INTERACTIVE
+printfn "Source File: %s" __SOURCE_FILE__
+printfn "hello from the end of bxb.fsx"
+// let NESTED =
+//     (let frames = System.Diagnostics.StackTrace().GetFrames()
+//                  |> Array.map (fun frame -> frame.GetMethod().Name)
+//     frames.[0] = "main@" && not (Array.contains "EvalParsedSourceFiles" frames))=false 
+if NESTED then printfn "nested" else printfn "not nested"
+#else
+#endif
+
+
+
+
 
 main ()
 
