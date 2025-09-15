@@ -1,1 +1,9 @@
-{}
+{
+  "showLineNumber": true,
+  "tabSize": 2,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "docs",
+  "newLinkFormat": "relative",
+  "attachmentFolderPath": "attachments",
+  "uriCallbacks": true
+}
