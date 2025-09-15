@@ -34,10 +34,6 @@ module Bxbfsx=
 
 
 let parseArgs (args: string[]) =
-    // let mutable inputFile = None
-    // let mutable outputFile = None
-    // let mutable showHelp = false
-    // let mutable delim = @"\t"
     let mutable i = 0
     while i < args.Length do
         let arg = args.[i]
@@ -146,6 +142,7 @@ let main () =
 
 
 // THIS IS THE DANCE WE NEED TO DO IN ORDER TO GET NESTING WORKING
+// THE TOP LEVEL FSX NEEDS TO HAVE THE NESTED CHECK UNCOMMENTED
 #if INTERACTIVE
 printfn "Source File: %s" __SOURCE_FILE__
 printfn "hello from the end of bxb.fsx"
