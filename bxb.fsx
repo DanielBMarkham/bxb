@@ -1,82 +1,71 @@
 #!/usr/bin/env -S dotnet fsi
-#if INTERACTIVE
-#else
-module Bxb
-#endif 
-// bxb.fsx
-// Main script for bxb. Loads the shared library and handles CLI I/O, options, logging, and tests.
-// Designed to be as functional as possible while handling imperative I/O.
-
-
-#if INTERACTIVE
-printfn "Source File: %s" __SOURCE_FILE__
-printfn "hello from the beginning of bxb.fsx"
-let NESTED =
-    (let frames = System.Diagnostics.StackTrace().GetFrames()
-                 |> Array.map (fun frame -> frame.GetMethod().Name)
-    frames.[0] = "main@" && not (Array.contains "EvalParsedSourceFiles" frames))=false 
-if NESTED then printfn "nested" else printfn "not nested"
-open Microsoft.FSharp.Compiler.Interactive.Settings
-#load "bxb-lib.fsx"
-#else
-  open BxbLib
-#endif
-open Clicommon
-
-#if INTERACTIVE
-#else
-module BxbFsx
-#endif 
-
-// NEED THIS FOR COMMON ENTRY POINT FROM CLI TO COMPONENTS
-
 open System
 open System.Text.RegularExpressions
 open System.IO
-#if INTERACTIVE
-  open Microsoft.FSharp.Compiler.Interactive.Settings
-#else
-  open BxbLib
-  open CliCommon
-#endif 
+open Microsoft.FSharp.Compiler.Interactive.Settings
 
-let appName = "bxb"
+#if INTERACTIVE
+#load "clicommon.fsx"
+#load "bxblib.fsx"
+open Clicommon 
+open Bxblib 
+#else
+open Clicommon 
+open Bxblib 
+#endif 
+module Bxbfsx=
+
+  #if INTERACTIVE
+  printfn "Source File: %s" __SOURCE_FILE__
+  printfn "hello from the beginning of bxb.fsx"
+  let NESTED =
+      (let frames = System.Diagnostics.StackTrace().GetFrames()
+                  |> Array.map (fun frame -> frame.GetMethod().Name)
+      frames.[0] = "main@" && not (Array.contains "EvalParsedSourceFiles" frames))=false 
+  if NESTED then printfn "nested" else printfn "not nested"
+  #else
+  #endif
+
+  // bxb.fsx
+  // Main script for bxb. Loads the shared library and handles CLI I/O, options, logging, and tests.
+  // Designed to be as functional as possible while handling imperative I/O.
+  let appName = "bxb"
 
 
 
 let parseArgs (args: string[]) =
-    let mutable inputFile = None
-    let mutable outputFile = None
-    let mutable showHelp = false
-    let mutable delim = @"\t"
+    // let mutable inputFile = None
+    // let mutable outputFile = None
+    // let mutable showHelp = false
+    // let mutable delim = @"\t"
     let mutable i = 0
     while i < args.Length do
         let arg = args.[i]
         if arg = "--i" then
             i <- i + 1
-            if i < args.Length then inputFile <- Some args.[i]
+            if i < args.Length then Clicommon.inputFile <- Some args.[i]
         elif arg = "--o" then
             i <- i + 1
-            if i < args.Length then outputFile <- Some args.[i]
+            if i < args.Length then Clicommon.outputFile <- Some args.[i]
         elif arg = "--v" then
             i <- i + 1
             if i < args.Length then
                 match args.[i].ToUpper() with
-                | "INFO" -> verbosity <- LogLevel.Info
-                | "WARN" -> verbosity <- LogLevel.Warn
-                | "ERROR" -> verbosity <- LogLevel.Error
-                | _ -> log LogLevel.Error (sprintf "Invalid verbosity level: %s" args.[i])
+                | "INFO" -> Clicommon.verbosity <- Clicommon.LogLevel.Info
+                | "WARN" -> Clicommon.verbosity <- Clicommon.LogLevel.Warn
+                | "ERROR" -> Clicommon.verbosity <- Clicommon.LogLevel.Error
+                | _ -> Clicommon.log Clicommon.LogLevel.Error (sprintf "Invalid verbosity level: %s" args.[i])
         elif arg = "--h" then
-            showHelp <- true
+            Clicommon.showHelp <- true
         elif arg = "--dt" then
-            addDatetime <- true
+            Clicommon.addDatetime <- true
         elif arg = "--delim" then
             i <- i + 1
-            if i < args.Length then delim <- args.[i]
+            if i < args.Length then Clicommon.delim <- args.[i]
         else
-            log LogLevel.Error (sprintf "Unknown option: %s" arg)
+            Clicommon.log Clicommon.LogLevel.Error (sprintf "Unknown option: %s" arg)
         i <- i + 1
-    (inputFile, outputFile, showHelp, delim)
+    (Clicommon.inputFile, Clicommon.outputFile, Clicommon.showHelp, Clicommon.delim)
 
 let helpText = """
 Usage: cliword [options]
@@ -123,7 +112,7 @@ let main () =
                 new StreamReader(file)
             with
             | ex ->
-                log LogLevel.Error (sprintf "Error opening input file %s: %s. Falling back to stdin." file ex.Message)
+                Clicommon.log Clicommon.LogLevel.Error (sprintf "Error opening input file %s: %s. Falling back to stdin." file ex.Message)
                 Console.In
         | None ->
             Console.In
@@ -134,7 +123,7 @@ let main () =
                 new StreamWriter(file)
             with
             | ex ->
-                log LogLevel.Error (sprintf "Error opening output file %s: %s. Falling back to stdout." file ex.Message)
+                Clicommon.log Clicommon.LogLevel.Error (sprintf "Error opening output file %s: %s. Falling back to stdout." file ex.Message)
                 Console.Out
         | None ->
             Console.Out
@@ -142,14 +131,14 @@ let main () =
         try
             let mutable line = reader.ReadLine()
             while line <> null do
-                let fields = Regex.Split(line, delim)
-                let processed = processcliwordRow fields
+                //let fields = Regex.Split(line, delim)
+                let processed = Bxblib.processAppDataLine line delim 
                 let outLine = String.Join("\t", processed)
                 writer.WriteLine outLine
                 line <- reader.ReadLine()
         with
         | ex ->
-            log LogLevel.Error (sprintf "Error during processing: %s" ex.Message)
+            Clicommon.log Clicommon.LogLevel.Error (sprintf "Error during processing: %s" ex.Message)
     finally
         if reader <> Console.In then reader.Close()
         if writer <> Console.Out then writer.Close()
@@ -160,10 +149,10 @@ let main () =
 #if INTERACTIVE
 printfn "Source File: %s" __SOURCE_FILE__
 printfn "hello from the end of bxb.fsx"
-// let NESTED =
-//     (let frames = System.Diagnostics.StackTrace().GetFrames()
-//                  |> Array.map (fun frame -> frame.GetMethod().Name)
-//     frames.[0] = "main@" && not (Array.contains "EvalParsedSourceFiles" frames))=false 
+let NESTED =
+    (let frames = System.Diagnostics.StackTrace().GetFrames()
+                 |> Array.map (fun frame -> frame.GetMethod().Name)
+    frames.[0] = "main@" && not (Array.contains "EvalParsedSourceFiles" frames))=false 
 if NESTED then printfn "nested" else printfn "not nested"
 #else
 #endif

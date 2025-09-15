@@ -1,4 +1,6 @@
 module BxbDll
-open BxbFsx
-printfn "Hello from F# bxb compiled dll"
+  open Clicommon 
+  open Bxblib
+  open Bxb
+  printfn "Hello from F# bxb compiled dll"
 
