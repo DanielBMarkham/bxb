@@ -2,5 +2,18 @@
   "remotely-save",
   "obsidian-linter",
   "obsidian-excalidraw-plugin",
-  "workspaces-plus"
+  "workspaces-plus",
+  "advanced-canvas",
+  "obsidian-advanced-uri",
+  "obsidian-checklist-plugin",
+  "obsidian-annotator",
+  "dataview",
+  "highlightr-plugin",
+  "obsidian-icon-folder",
+  "obsidian-importer",
+  "obsidian-minimal-settings",
+  "obsidian-style-settings",
+  "tag-wrangler",
+  "templater-obsidian",
+  "text-extractor"
 ]

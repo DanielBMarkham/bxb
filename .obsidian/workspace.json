@@ -150,8 +150,19 @@
               "icon": "lucide-list",
               "title": "Outline of README"
             }
+          },
+          {
+            "id": "e37c62f4ef2337cc",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -170,10 +181,11 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "remotely-save:Remotely Save": false,
-      "obsidian-excalidraw-plugin:New drawing": false
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "df8a952a35479708",
+  "active": "e37c62f4ef2337cc",
   "lastOpenFiles": [
     "excalidraw/scripts/desktop.ini",
     "excalidraw/scripts",

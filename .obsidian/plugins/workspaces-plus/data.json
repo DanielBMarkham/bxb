@@ -1,0 +1,23 @@
+{
+  "showInstructions": true,
+  "showDeletePrompt": true,
+  "saveOnSwitch": false,
+  "saveOnChange": true,
+  "workspaceSettings": true,
+  "systemDarkMode": false,
+  "globalSettings": {
+    "showLineNumber": true,
+    "tabSize": 2,
+    "newFileLocation": "folder",
+    "newFileFolderPath": "docs",
+    "newLinkFormat": "relative",
+    "attachmentFolderPath": "attachments",
+    "uriCallbacks": true
+  },
+  "activeWorkspaceDesktop": "",
+  "activeWorkspaceMobile": "",
+  "reloadLivePreview": true,
+  "workspaceSwitcherRibbon": false,
+  "modeSwitcherRibbon": false,
+  "replaceNativeRibbon": false
+}
