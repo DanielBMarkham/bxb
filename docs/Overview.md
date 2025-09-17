@@ -15,6 +15,7 @@ bxb.fsx
 clicommon.fsx <|-- bxblib.fsx : AnyGenericOSInteraction
 bxblib.fsx <|-- bxb.fsx
 bxblib.fsx : main()
+bxblib.fsx : CODE-GO-HERE()
 bxb.fsx : ScriptEntry()
 bxb
 bxb.cmd
@@ -39,7 +40,7 @@ bxbtest.dll
 bxblib.fsx <|-- bxbtest.fs
 bxbtest.fs <|-- bxbtest.dll
 
-YourDotNetCode
+YourDotNetCode : Or NoCode
 bxblib.fsx  <|-- YourDotNetCode : IncludeDirectlyAsSourceCode
 bxb.dll  <|-- YourDotNetCode : CompiledAccess
 bxb.fsx  <|-- YourDotNetCode : REPLAccess
@@ -49,7 +50,7 @@ bxb.cmd  <|-- YourDotNetCode : DosWrapper
 
 bxbtest.dll  <|-- YourDotNetCode : CompiledTesting
 bxbtest.fsx  <|-- YourDotNetCode : REPLTesting
-bxbtest  <|-- YourDotNetCode : BasTesting
+bxbtest  <|-- YourDotNetCode : BashTesting
 bxbtest.cmd  <|-- YourDotNetCode : DOSTesting
 
 
