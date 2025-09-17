@@ -6,7 +6,8 @@ I will now link to a part of the source code
 
 and some code copied and pasted 
 
-```fsharp
+>[!NOTE] - A Callout Title Goes Here
+```fsharp title:"My Code" fold
 
     /// Reverses the columns in a single line based on the delimiter regex pattern.
     /// Splits the line using the regex with capturing groups to preserve delimiters, reverses the columns, and joins back with reversed delimiters.
