@@ -21,7 +21,7 @@ bxb
 bxb.cmd
 bxb.fsx  <|-- bxb
 bxb.fsx  <|-- bxb.cmd
-bxb.fs
+bxb.fs : CompiledMain()
 bxb.dll
 bxblib.fsx <|-- bxb.fs
 bxb.fs <|-- bxb.dll
@@ -35,7 +35,7 @@ bxblib.fsx <|-- bxbtest.fsx
 bxbtest.fsx : ScriptEntry()
 bxbtest.fsx  <|-- bxbtest
 bxbtest.fsx  <|-- bxbtest.cmd
-bxbtest.fs
+bxbtest.fs : CompiledTesting()
 bxbtest.dll
 bxblib.fsx <|-- bxbtest.fs
 bxbtest.fs <|-- bxbtest.dll
