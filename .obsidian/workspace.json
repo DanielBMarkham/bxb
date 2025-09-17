@@ -49,8 +49,7 @@
               "title": "Overview"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -220,12 +219,13 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "a0c684509f070f36",
+  "active": "df8a952a35479708",
   "lastOpenFiles": [
+    "docs/Overview.md",
+    "attachments/dependencydiagram.png",
     "src/desktop.ini",
     "src",
     "docs/test-documentation.md",
-    "docs/Overview.md",
     "README.md",
     "excalidraw/scripts/desktop.ini",
     "excalidraw/scripts",
@@ -234,7 +234,6 @@
     "excalidraw/cropping/desktop.ini",
     "excalidraw/cropping",
     "excalidraw/desktop.ini",
-    "excalidraw",
-    "attachments/desktop.ini"
+    "excalidraw"
   ]
 }
