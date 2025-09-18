@@ -23,42 +23,76 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+src/[Dd]ebug/
+src/[Dd]ebugPublic/
+src/[Rr]elease/
+src/[Rr]eleases/
+src/x64/
+src/x86/
+src/[Ww][Ii][Nn]32/
+src/[Aa][Rr][Mm]/
+src/[Aa][Rr][Mm]64/
+src/bld/
+src/[Bb]in/
+src/[Oo]bj/
+src/[Ll]og/
+src/[Ll]ogs/
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json
 artifacts/
 
+src/project.lock.json
+src/project.fragment.lock.json
+src/artifacts/
+
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
+src/ScaffoldingReadMe.txt
 
 # NuGet Packages
 *.nupkg
+src/*.nupkg
 # NuGet Symbol Packages
 *.snupkg
+src/*.snupkg
 
 # Others
 ~$*
 *~
 CodeCoverage/
+src/~$*
+src/*~
+src/CodeCoverage/
 
 # MSBuild Binary and Structured Log
 *.binlog
+src/*.binlog
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+src/[Tt]est[Rr]esult*/
+src/[Bb]uild[Ll]og.*
 
 # NUnit
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+src/*.VisualState.xml
+src/TestResult.xml
+src/nunit-*.xml
 
 #Google Drive
 *.tmp/
 *.tmp.driveupload/
+src/*.tmp/
+src/*.tmp.driveupload/
 
 
 .fake
+src/.fake
 
 #Obsidian
 .obsidian/plugins/remotely-save/main.js 
