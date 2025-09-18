@@ -13,12 +13,36 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/test-documentation.md",
+                "file": "docs/Overview.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "test-documentation"
+              "title": "Overview"
+            }
+          },
+          {
+            "id": "80f52be21acbc1f9",
+            "type": "leaf",
+            "state": {
+              "type": "mk-uri-view",
+              "state": {
+                "path": "https://www.make.md/static/latest.md"
+              },
+              "icon": "lucide-file",
+              "title": "https://www.make.md/static/latest.md"
+            }
+          },
+          {
+            "id": "43b2182dea6f3455",
+            "type": "leaf",
+            "state": {
+              "type": "mk-uri-view",
+              "state": {
+                "path": "https://www.make.md/static/GetStarted.md"
+              },
+              "icon": "lucide-file",
+              "title": "https://www.make.md/static/GetStarted.md"
             }
           },
           {
@@ -36,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -88,8 +112,19 @@
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
+          },
+          {
+            "id": "05962111af139b17",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Navigator"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -206,21 +241,22 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "c0dbc006478eb7fc",
+  "active": "43b2182dea6f3455",
   "lastOpenFiles": [
+    "Tags/desktop.ini",
+    "Tags",
     "docs/Overview.md",
     "docs/test-documentation.md",
+    "src/obj/Debug/net7.0/bxbtest.fsproj.FileListAbsolute.txt",
+    "src/bin/Debug/net7.0/bxbtest.pdb",
+    "src/obj/Debug/net7.0/ref/bxbtest.dll",
+    "src/bin/Debug/net7.0/bxbtest.dll",
+    "src/bin/Debug/net7.0/bxbtest.runtimeconfig.json",
+    "src/obj/Debug/net7.0/bxbtest.genruntimeconfig.cache",
+    "src/bin/Debug/net7.0/bxbtest.deps.json",
+    "src/bin/Debug/net7.0/bxbtest",
+    "src/obj/Debug/net7.0/bxbtest.pdb",
     "README.md",
-    "attachments/dependencydiagram.png",
-    "src/desktop.ini",
-    "src",
-    "excalidraw/scripts/desktop.ini",
-    "excalidraw/scripts",
-    "excalidraw/annotations/desktop.ini",
-    "excalidraw/annotations",
-    "excalidraw/cropping/desktop.ini",
-    "excalidraw/cropping",
-    "excalidraw/desktop.ini",
-    "excalidraw"
+    "attachments/dependencydiagram.png"
   ]
 }
