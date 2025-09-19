@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "docs/test-documentation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "test-documentation"
             }
           }
         ]
@@ -83,6 +83,16 @@
           "state": {},
           "icon": "lucide-bookmark",
           "title": "Bookmarks"
+        }
+      },
+      {
+        "id": "592b8b8c839e21a7",
+        "type": "leaf",
+        "state": {
+          "type": "mk-path-view",
+          "state": {},
+          "icon": "layout-grid",
+          "title": "Navigator"
         }
       }
     ],
@@ -178,6 +188,7 @@
   "active": "fd5bd6cf55adb341",
   "lastOpenFiles": [
     "docs/Overview.md",
+    "README.md",
     "docs/test-documentation.md"
   ]
 }

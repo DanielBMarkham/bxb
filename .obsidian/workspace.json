@@ -22,30 +22,6 @@
             }
           },
           {
-            "id": "80f52be21acbc1f9",
-            "type": "leaf",
-            "state": {
-              "type": "mk-uri-view",
-              "state": {
-                "path": "https://www.make.md/static/latest.md"
-              },
-              "icon": "lucide-file",
-              "title": "https://www.make.md/static/latest.md"
-            }
-          },
-          {
-            "id": "43b2182dea6f3455",
-            "type": "leaf",
-            "state": {
-              "type": "mk-uri-view",
-              "state": {
-                "path": "https://www.make.md/static/GetStarted.md"
-              },
-              "icon": "lucide-file",
-              "title": "https://www.make.md/static/GetStarted.md"
-            }
-          },
-          {
             "id": "a0c684509f070f36",
             "type": "leaf",
             "state": {
@@ -59,8 +35,7 @@
               "title": "README"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -114,7 +89,7 @@
             }
           },
           {
-            "id": "05962111af139b17",
+            "id": "688219935ed989f5",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -241,11 +216,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "43b2182dea6f3455",
+  "active": "e1f89ff3ae79a1d0",
   "lastOpenFiles": [
+    "README.md",
+    "docs/Overview.md",
     "Tags/desktop.ini",
     "Tags",
-    "docs/Overview.md",
     "docs/test-documentation.md",
     "src/obj/Debug/net7.0/bxbtest.fsproj.FileListAbsolute.txt",
     "src/bin/Debug/net7.0/bxbtest.pdb",
@@ -255,8 +231,6 @@
     "src/obj/Debug/net7.0/bxbtest.genruntimeconfig.cache",
     "src/bin/Debug/net7.0/bxbtest.deps.json",
     "src/bin/Debug/net7.0/bxbtest",
-    "src/obj/Debug/net7.0/bxbtest.pdb",
-    "README.md",
     "attachments/dependencydiagram.png"
   ]
 }

@@ -33,36 +33,6 @@ module Bxbfsx=
 
 
 
-let parseArgs (args: string[]) =
-    let mutable i = 0
-    while i < args.Length do
-        let arg = args.[i]
-        if arg = "--i" then
-            i <- i + 1
-            if i < args.Length then Clicommon.inputFile <- Some args.[i]
-        elif arg = "--o" then
-            i <- i + 1
-            if i < args.Length then Clicommon.outputFile <- Some args.[i]
-        elif arg = "--v" then
-            i <- i + 1
-            if i < args.Length then
-                match args.[i].ToUpper() with
-                | "INFO" -> Clicommon.verbosity <- Clicommon.LogLevel.Info
-                | "WARN" -> Clicommon.verbosity <- Clicommon.LogLevel.Warn
-                | "ERROR" -> Clicommon.verbosity <- Clicommon.LogLevel.Error
-                | _ -> Clicommon.log Clicommon.LogLevel.Error (sprintf "Invalid verbosity level: %s" args.[i])
-        elif arg = "--h" then
-            Clicommon.showHelp <- true
-        elif arg = "--dt" then
-            Clicommon.addDatetime <- true
-        elif arg = "--delim" then
-            i <- i + 1
-            if i < args.Length then Clicommon.delim <- args.[i]
-        else
-            Clicommon.log Clicommon.LogLevel.Error (sprintf "Unknown option: %s" arg)
-        i <- i + 1
-    (Clicommon.inputFile, Clicommon.outputFile, Clicommon.showHelp, Clicommon.delim)
-
 let helpText = """
 Usage: cliword [options]
 
@@ -98,7 +68,7 @@ let main () =
         #else
         Environment.GetCommandLineArgs() |> Array.tail
         #endif
-    let inputFile, outputFile, showHelp, delim = parseArgs args
+    let inputFile, outputFile, showHelp, delim = Clicommon.parseArgs args
     if showHelp then
         Console.Out.WriteLine helpText
     let reader : TextReader =

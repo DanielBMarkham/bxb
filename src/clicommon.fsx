@@ -90,6 +90,43 @@ module Clicommon=
             Seq.zip d1 d2 |> Seq.forall (fun (r1, r2) -> cliwordTestArraysEqual r1 r2)
 
 
+
+
+
+    let parseArgs (args: string[]) =
+        let mutable i = 0
+        while i < args.Length do
+            let arg = args.[i]
+            if arg = "--i" then
+                i <- i + 1
+                if i < args.Length then inputFile <- Some args.[i]
+            elif arg = "--o" then
+                i <- i + 1
+                if i < args.Length then outputFile <- Some args.[i]
+            elif arg = "--v" then
+                i <- i + 1
+                if i < args.Length then
+                    match args.[i].ToUpper() with
+                    | "INFO" -> verbosity <- LogLevel.Info
+                    | "WARN" -> verbosity <- LogLevel.Warn
+                    | "ERROR" -> verbosity <- LogLevel.Error
+                    | _ -> log LogLevel.Error (sprintf "Invalid verbosity level: %s" args.[i])
+            elif arg = "--h" then
+                showHelp <- true
+            elif arg = "--dt" then
+                addDatetime <- true
+            elif arg = "--delim" then
+                i <- i + 1
+                if i < args.Length then delim <- args.[i]
+            else
+                log LogLevel.Error (sprintf "Unknown option: %s" arg)
+            i <- i + 1
+        (inputFile, outputFile, showHelp, delim)
+
+
+
+
+
     // THIS IS THE DANCE WE NEED TO DO IN ORDER TO GET NESTING WORKING
     #if INTERACTIVE
     printfn "Source File: %s" __SOURCE_FILE__
