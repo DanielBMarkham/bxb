@@ -38,7 +38,13 @@
   "vaultSelector": true,
   "deleteFileOption": "trash",
   "expandedSpaces": [
-    "/"
+    "/",
+    "//docs",
+    "//excalidraw",
+    "//excalidraw/excalidraw/annotations",
+    "//excalidraw/excalidraw/cropping",
+    "//excalidraw/excalidraw/scripts",
+    "//attachments"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "tags",
