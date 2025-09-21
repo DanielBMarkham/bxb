@@ -29,6 +29,10 @@ module Bxblib=
     #else
     #endif
 
+    /// Can you accept and spit out a jagged sparse string array?
+    /// If so, do that and don't worry about anything else
+    let codeGoHere()=
+        ()
 
     /// Reverses the columns in a single line based on the delimiter regex pattern.
     /// Splits the line using the regex with capturing groups to preserve delimiters, reverses the columns, and joins back with reversed delimiters.
