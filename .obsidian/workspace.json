@@ -35,7 +35,8 @@
               "title": "README"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -89,7 +90,7 @@
             }
           },
           {
-            "id": "688219935ed989f5",
+            "id": "ed3f0fd75f9f3ca0",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -216,10 +217,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "e1f89ff3ae79a1d0",
+  "active": "a0c684509f070f36",
   "lastOpenFiles": [
-    "README.md",
     "docs/Overview.md",
+    "README.md",
     "Tags/desktop.ini",
     "Tags",
     "docs/test-documentation.md",

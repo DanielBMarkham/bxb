@@ -19,6 +19,7 @@ clicommon.fsx <|-- bxblib.fsx : AnyGenericOSInteraction
 bxblib.fsx <|-- bxb.fsx
 bxblib.fsx : main()
 bxblib.fsx : CODE-GO-HERE()
+bxblib.fsx : TESTS-GO-HERE()
 bxb.fsx : ScriptEntry()
 bxb
 bxb.cmd
@@ -28,7 +29,7 @@ bxb.fs : CompiledMain()
 bxb.dll
 bxblib.fsx <|-- bxb.fs
 bxb.fs <|-- bxb.dll
-
+bxblib.fsx  <|--  bxbsmoketest.fsx
 
 
 bxbtest.fsx
